@@ -104,10 +104,11 @@ class Renderer extends MarkdownRenderChild {
       const headings = metadata && metadata.headings ? metadata.headings : []
       if (options.debugInConsole) debug('Headings', headings)
 
-      const markdown = getMarkdownFromHeadings(headings, options)
+      let markdown = getMarkdownFromHeadings(headings, options)
       if (options.debugInConsole) debug('Markdown', markdown)
 
       this.element.empty()
+      markdown = '## Table of Contents\n' + markdown
       MarkdownRenderer.renderMarkdown(markdown, this.element, this.sourcePath, this)
     } catch(error) {
       const readableError = `_💥 Could not render table of contents (${error.message})_`
