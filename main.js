@@ -113,7 +113,7 @@ class Renderer extends MarkdownRenderChild {
       if (options.debugInConsole) debug('Markdown', markdown)
 
       this.element.empty()
-      markdown = '## Table of Contents\n' + markdown
+      if (options.addTitle)  markdown = '## Table of Contents\n' + markdown
       MarkdownRenderer.renderMarkdown(markdown, this.element, this.sourcePath, this)
     } catch(error) {
       const readableError = `_💥 Could not render table of contents (${error.message})_`
