@@ -38,6 +38,11 @@ const availableOptions = {
     default: false,
     comment: 'Print debug info in Obsidian console',
   },
+  addTitle: {
+    type: 'boolean',
+    default: true,
+    comment: 'Include a title Table of Contents',
+  },   
 }
 
 class ObsidianAutomaticTableOfContents extends Plugin {
